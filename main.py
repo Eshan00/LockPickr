@@ -4,7 +4,7 @@ from colorama import init, Fore, Style
 from cracker.brute_force import run_brute_force
 from cracker.dictionary_attack import run_dictionary_attack
 
-# Initialize colorama
+# initializing colorama (make sure to use 'Fore.{colour}' for custom colour for certain text
 init(autoreset=True)
 
 def print_logo():

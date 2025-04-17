@@ -6,11 +6,11 @@ from itertools import product
 
 def loading_animation():
     """Displays a loading animation"""
-    for _ in range(10):  # Limit the number of dots to prevent endless loop in the terminal
+    for _ in range(10):  # Limiting the number of dots 
         sys.stdout.write(".")
         sys.stdout.flush()
         time.sleep(0.5)
-        sys.stdout.write("\b \b")  # Erase the last character
+        sys.stdout.write("\b \b")  # we erase the last character
         sys.stdout.flush()
 
 def run_brute_force(target_hash, charset, max_length):
@@ -18,7 +18,7 @@ def run_brute_force(target_hash, charset, max_length):
     start = time.time()
     attempts = 0
 
-    # Use loading animation while initializing
+    # loading animation
     sys.stdout.write("Working")
     sys.stdout.flush()
     loading_animation()
@@ -30,11 +30,11 @@ def run_brute_force(target_hash, charset, max_length):
             guess = ''.join(guess_tuple)
             attempts += 1
             
-            # Show current attempt
+            # current attempt display
             sys.stdout.write(Fore.LIGHTWHITE_EX + f"\rAttempting: {guess}  (Attempt #{attempts})")
             sys.stdout.flush()
             
-            # Calculate hash for current attempt
+            # calculate hash for current attempt
             guess_hash = hashlib.sha256(guess.encode()).hexdigest()
             if guess_hash == target_hash:
                 duration = time.time() - start
